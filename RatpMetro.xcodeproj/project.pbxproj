@@ -1,0 +1,866 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7B5BF8D321AC14DD000E5FF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5BF8D221AC14DD000E5FF6 /* AppDelegate.swift */; };
+		7B5BF8D521AC14DD000E5FF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5BF8D421AC14DD000E5FF6 /* ViewController.swift */; };
+		7B5BF8D821AC14DD000E5FF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B5BF8D621AC14DD000E5FF6 /* Main.storyboard */; };
+		7B5BF8DA21AC14DE000E5FF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B5BF8D921AC14DE000E5FF6 /* Assets.xcassets */; };
+		7B5BF8DD21AC14DE000E5FF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B5BF8DB21AC14DE000E5FF6 /* LaunchScreen.storyboard */; };
+		7B5BF8E821AC14DE000E5FF6 /* RatpMetroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5BF8E721AC14DE000E5FF6 /* RatpMetroTests.swift */; };
+		7B5BF8F321AC14DE000E5FF6 /* RatpMetroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5BF8F221AC14DE000E5FF6 /* RatpMetroUITests.swift */; };
+		7B5BF8F821AC14DE000E5FF6 /* RatpMetro WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 7B5BF8F721AC14DE000E5FF6 /* RatpMetro WatchKit App.app */; };
+		7B5BF8FE21AC14DE000E5FF6 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B5BF8FC21AC14DE000E5FF6 /* Interface.storyboard */; };
+		7B5BF90021AC14DF000E5FF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B5BF8FF21AC14DF000E5FF6 /* Assets.xcassets */; };
+		7B5BF90721AC14DF000E5FF6 /* RatpMetro WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7B5BF90621AC14DF000E5FF6 /* RatpMetro WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7B5BF90C21AC14DF000E5FF6 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5BF90B21AC14DF000E5FF6 /* InterfaceController.swift */; };
+		7B5BF90E21AC14DF000E5FF6 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5BF90D21AC14DF000E5FF6 /* ExtensionDelegate.swift */; };
+		7B5BF91021AC14DF000E5FF6 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5BF90F21AC14DF000E5FF6 /* NotificationController.swift */; };
+		7B5BF91221AC14DF000E5FF6 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5BF91121AC14DF000E5FF6 /* ComplicationController.swift */; };
+		7B5BF91421AC14DF000E5FF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B5BF91321AC14DF000E5FF6 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7B5BF8E421AC14DE000E5FF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B5BF8C721AC14DD000E5FF6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B5BF8CE21AC14DD000E5FF6;
+			remoteInfo = RatpMetro;
+		};
+		7B5BF8EF21AC14DE000E5FF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B5BF8C721AC14DD000E5FF6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B5BF8CE21AC14DD000E5FF6;
+			remoteInfo = RatpMetro;
+		};
+		7B5BF8F921AC14DE000E5FF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B5BF8C721AC14DD000E5FF6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B5BF8F621AC14DE000E5FF6;
+			remoteInfo = "RatpMetro WatchKit App";
+		};
+		7B5BF90821AC14DF000E5FF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B5BF8C721AC14DD000E5FF6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B5BF90521AC14DF000E5FF6;
+			remoteInfo = "RatpMetro WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7B5BF91C21AC14DF000E5FF6 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7B5BF90721AC14DF000E5FF6 /* RatpMetro WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B5BF92021AC14DF000E5FF6 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				7B5BF8F821AC14DE000E5FF6 /* RatpMetro WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		7B5BF8CF21AC14DD000E5FF6 /* RatpMetro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RatpMetro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B5BF8D221AC14DD000E5FF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7B5BF8D421AC14DD000E5FF6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7B5BF8D721AC14DD000E5FF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7B5BF8D921AC14DE000E5FF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7B5BF8DC21AC14DE000E5FF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7B5BF8DE21AC14DE000E5FF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B5BF8E321AC14DE000E5FF6 /* RatpMetroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RatpMetroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B5BF8E721AC14DE000E5FF6 /* RatpMetroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatpMetroTests.swift; sourceTree = "<group>"; };
+		7B5BF8E921AC14DE000E5FF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B5BF8EE21AC14DE000E5FF6 /* RatpMetroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RatpMetroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B5BF8F221AC14DE000E5FF6 /* RatpMetroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatpMetroUITests.swift; sourceTree = "<group>"; };
+		7B5BF8F421AC14DE000E5FF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B5BF8F721AC14DE000E5FF6 /* RatpMetro WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RatpMetro WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B5BF8FD21AC14DE000E5FF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		7B5BF8FF21AC14DF000E5FF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7B5BF90121AC14DF000E5FF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B5BF90621AC14DF000E5FF6 /* RatpMetro WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "RatpMetro WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B5BF90B21AC14DF000E5FF6 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		7B5BF90D21AC14DF000E5FF6 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		7B5BF90F21AC14DF000E5FF6 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		7B5BF91121AC14DF000E5FF6 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		7B5BF91321AC14DF000E5FF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7B5BF91521AC14DF000E5FF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B5BF91621AC14DF000E5FF6 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7B5BF8CC21AC14DD000E5FF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B5BF8E021AC14DE000E5FF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B5BF8EB21AC14DE000E5FF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B5BF90321AC14DF000E5FF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7B5BF8C621AC14DD000E5FF6 = {
+			isa = PBXGroup;
+			children = (
+				7B5BF8D121AC14DD000E5FF6 /* RatpMetro */,
+				7B5BF8E621AC14DE000E5FF6 /* RatpMetroTests */,
+				7B5BF8F121AC14DE000E5FF6 /* RatpMetroUITests */,
+				7B5BF8FB21AC14DE000E5FF6 /* RatpMetro WatchKit App */,
+				7B5BF90A21AC14DF000E5FF6 /* RatpMetro WatchKit Extension */,
+				7B5BF8D021AC14DD000E5FF6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7B5BF8D021AC14DD000E5FF6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B5BF8CF21AC14DD000E5FF6 /* RatpMetro.app */,
+				7B5BF8E321AC14DE000E5FF6 /* RatpMetroTests.xctest */,
+				7B5BF8EE21AC14DE000E5FF6 /* RatpMetroUITests.xctest */,
+				7B5BF8F721AC14DE000E5FF6 /* RatpMetro WatchKit App.app */,
+				7B5BF90621AC14DF000E5FF6 /* RatpMetro WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7B5BF8D121AC14DD000E5FF6 /* RatpMetro */ = {
+			isa = PBXGroup;
+			children = (
+				7B5BF8D221AC14DD000E5FF6 /* AppDelegate.swift */,
+				7B5BF8D421AC14DD000E5FF6 /* ViewController.swift */,
+				7B5BF8D621AC14DD000E5FF6 /* Main.storyboard */,
+				7B5BF8D921AC14DE000E5FF6 /* Assets.xcassets */,
+				7B5BF8DB21AC14DE000E5FF6 /* LaunchScreen.storyboard */,
+				7B5BF8DE21AC14DE000E5FF6 /* Info.plist */,
+			);
+			path = RatpMetro;
+			sourceTree = "<group>";
+		};
+		7B5BF8E621AC14DE000E5FF6 /* RatpMetroTests */ = {
+			isa = PBXGroup;
+			children = (
+				7B5BF8E721AC14DE000E5FF6 /* RatpMetroTests.swift */,
+				7B5BF8E921AC14DE000E5FF6 /* Info.plist */,
+			);
+			path = RatpMetroTests;
+			sourceTree = "<group>";
+		};
+		7B5BF8F121AC14DE000E5FF6 /* RatpMetroUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7B5BF8F221AC14DE000E5FF6 /* RatpMetroUITests.swift */,
+				7B5BF8F421AC14DE000E5FF6 /* Info.plist */,
+			);
+			path = RatpMetroUITests;
+			sourceTree = "<group>";
+		};
+		7B5BF8FB21AC14DE000E5FF6 /* RatpMetro WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				7B5BF8FC21AC14DE000E5FF6 /* Interface.storyboard */,
+				7B5BF8FF21AC14DF000E5FF6 /* Assets.xcassets */,
+				7B5BF90121AC14DF000E5FF6 /* Info.plist */,
+			);
+			path = "RatpMetro WatchKit App";
+			sourceTree = "<group>";
+		};
+		7B5BF90A21AC14DF000E5FF6 /* RatpMetro WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7B5BF90B21AC14DF000E5FF6 /* InterfaceController.swift */,
+				7B5BF90D21AC14DF000E5FF6 /* ExtensionDelegate.swift */,
+				7B5BF90F21AC14DF000E5FF6 /* NotificationController.swift */,
+				7B5BF91121AC14DF000E5FF6 /* ComplicationController.swift */,
+				7B5BF91321AC14DF000E5FF6 /* Assets.xcassets */,
+				7B5BF91521AC14DF000E5FF6 /* Info.plist */,
+				7B5BF91621AC14DF000E5FF6 /* PushNotificationPayload.apns */,
+			);
+			path = "RatpMetro WatchKit Extension";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7B5BF8CE21AC14DD000E5FF6 /* RatpMetro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B5BF92121AC14DF000E5FF6 /* Build configuration list for PBXNativeTarget "RatpMetro" */;
+			buildPhases = (
+				7B5BF8CB21AC14DD000E5FF6 /* Sources */,
+				7B5BF8CC21AC14DD000E5FF6 /* Frameworks */,
+				7B5BF8CD21AC14DD000E5FF6 /* Resources */,
+				7B5BF92021AC14DF000E5FF6 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7B5BF8FA21AC14DE000E5FF6 /* PBXTargetDependency */,
+			);
+			name = RatpMetro;
+			productName = RatpMetro;
+			productReference = 7B5BF8CF21AC14DD000E5FF6 /* RatpMetro.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7B5BF8E221AC14DE000E5FF6 /* RatpMetroTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B5BF92421AC14DF000E5FF6 /* Build configuration list for PBXNativeTarget "RatpMetroTests" */;
+			buildPhases = (
+				7B5BF8DF21AC14DE000E5FF6 /* Sources */,
+				7B5BF8E021AC14DE000E5FF6 /* Frameworks */,
+				7B5BF8E121AC14DE000E5FF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7B5BF8E521AC14DE000E5FF6 /* PBXTargetDependency */,
+			);
+			name = RatpMetroTests;
+			productName = RatpMetroTests;
+			productReference = 7B5BF8E321AC14DE000E5FF6 /* RatpMetroTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7B5BF8ED21AC14DE000E5FF6 /* RatpMetroUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B5BF92721AC14DF000E5FF6 /* Build configuration list for PBXNativeTarget "RatpMetroUITests" */;
+			buildPhases = (
+				7B5BF8EA21AC14DE000E5FF6 /* Sources */,
+				7B5BF8EB21AC14DE000E5FF6 /* Frameworks */,
+				7B5BF8EC21AC14DE000E5FF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7B5BF8F021AC14DE000E5FF6 /* PBXTargetDependency */,
+			);
+			name = RatpMetroUITests;
+			productName = RatpMetroUITests;
+			productReference = 7B5BF8EE21AC14DE000E5FF6 /* RatpMetroUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		7B5BF8F621AC14DE000E5FF6 /* RatpMetro WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B5BF91D21AC14DF000E5FF6 /* Build configuration list for PBXNativeTarget "RatpMetro WatchKit App" */;
+			buildPhases = (
+				7B5BF8F521AC14DE000E5FF6 /* Resources */,
+				7B5BF91C21AC14DF000E5FF6 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7B5BF90921AC14DF000E5FF6 /* PBXTargetDependency */,
+			);
+			name = "RatpMetro WatchKit App";
+			productName = "RatpMetro WatchKit App";
+			productReference = 7B5BF8F721AC14DE000E5FF6 /* RatpMetro WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		7B5BF90521AC14DF000E5FF6 /* RatpMetro WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B5BF91921AC14DF000E5FF6 /* Build configuration list for PBXNativeTarget "RatpMetro WatchKit Extension" */;
+			buildPhases = (
+				7B5BF90221AC14DF000E5FF6 /* Sources */,
+				7B5BF90321AC14DF000E5FF6 /* Frameworks */,
+				7B5BF90421AC14DF000E5FF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RatpMetro WatchKit Extension";
+			productName = "RatpMetro WatchKit Extension";
+			productReference = 7B5BF90621AC14DF000E5FF6 /* RatpMetro WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7B5BF8C721AC14DD000E5FF6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Kévin TURMEL";
+				TargetAttributes = {
+					7B5BF8CE21AC14DD000E5FF6 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					7B5BF8E221AC14DE000E5FF6 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 7B5BF8CE21AC14DD000E5FF6;
+					};
+					7B5BF8ED21AC14DE000E5FF6 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 7B5BF8CE21AC14DD000E5FF6;
+					};
+					7B5BF8F621AC14DE000E5FF6 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					7B5BF90521AC14DF000E5FF6 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 7B5BF8CA21AC14DD000E5FF6 /* Build configuration list for PBXProject "RatpMetro" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7B5BF8C621AC14DD000E5FF6;
+			productRefGroup = 7B5BF8D021AC14DD000E5FF6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7B5BF8CE21AC14DD000E5FF6 /* RatpMetro */,
+				7B5BF8E221AC14DE000E5FF6 /* RatpMetroTests */,
+				7B5BF8ED21AC14DE000E5FF6 /* RatpMetroUITests */,
+				7B5BF8F621AC14DE000E5FF6 /* RatpMetro WatchKit App */,
+				7B5BF90521AC14DF000E5FF6 /* RatpMetro WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7B5BF8CD21AC14DD000E5FF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B5BF8DD21AC14DE000E5FF6 /* LaunchScreen.storyboard in Resources */,
+				7B5BF8DA21AC14DE000E5FF6 /* Assets.xcassets in Resources */,
+				7B5BF8D821AC14DD000E5FF6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B5BF8E121AC14DE000E5FF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B5BF8EC21AC14DE000E5FF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B5BF8F521AC14DE000E5FF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B5BF90021AC14DF000E5FF6 /* Assets.xcassets in Resources */,
+				7B5BF8FE21AC14DE000E5FF6 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B5BF90421AC14DF000E5FF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B5BF91421AC14DF000E5FF6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7B5BF8CB21AC14DD000E5FF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B5BF8D521AC14DD000E5FF6 /* ViewController.swift in Sources */,
+				7B5BF8D321AC14DD000E5FF6 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B5BF8DF21AC14DE000E5FF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B5BF8E821AC14DE000E5FF6 /* RatpMetroTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B5BF8EA21AC14DE000E5FF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B5BF8F321AC14DE000E5FF6 /* RatpMetroUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B5BF90221AC14DF000E5FF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B5BF91021AC14DF000E5FF6 /* NotificationController.swift in Sources */,
+				7B5BF91221AC14DF000E5FF6 /* ComplicationController.swift in Sources */,
+				7B5BF90E21AC14DF000E5FF6 /* ExtensionDelegate.swift in Sources */,
+				7B5BF90C21AC14DF000E5FF6 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7B5BF8E521AC14DE000E5FF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B5BF8CE21AC14DD000E5FF6 /* RatpMetro */;
+			targetProxy = 7B5BF8E421AC14DE000E5FF6 /* PBXContainerItemProxy */;
+		};
+		7B5BF8F021AC14DE000E5FF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B5BF8CE21AC14DD000E5FF6 /* RatpMetro */;
+			targetProxy = 7B5BF8EF21AC14DE000E5FF6 /* PBXContainerItemProxy */;
+		};
+		7B5BF8FA21AC14DE000E5FF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B5BF8F621AC14DE000E5FF6 /* RatpMetro WatchKit App */;
+			targetProxy = 7B5BF8F921AC14DE000E5FF6 /* PBXContainerItemProxy */;
+		};
+		7B5BF90921AC14DF000E5FF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B5BF90521AC14DF000E5FF6 /* RatpMetro WatchKit Extension */;
+			targetProxy = 7B5BF90821AC14DF000E5FF6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7B5BF8D621AC14DD000E5FF6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B5BF8D721AC14DD000E5FF6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7B5BF8DB21AC14DE000E5FF6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B5BF8DC21AC14DE000E5FF6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		7B5BF8FC21AC14DE000E5FF6 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B5BF8FD21AC14DE000E5FF6 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7B5BF91721AC14DF000E5FF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7B5BF91821AC14DF000E5FF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7B5BF91A21AC14DF000E5FF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "RatpMetro WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lyrod.RatpMetro.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Debug;
+		};
+		7B5BF91B21AC14DF000E5FF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "RatpMetro WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lyrod.RatpMetro.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Release;
+		};
+		7B5BF91E21AC14DF000E5FF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				IBSC_MODULE = RatpMetro_WatchKit_Extension;
+				INFOPLIST_FILE = "RatpMetro WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = lyrod.RatpMetro.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Debug;
+		};
+		7B5BF91F21AC14DF000E5FF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				IBSC_MODULE = RatpMetro_WatchKit_Extension;
+				INFOPLIST_FILE = "RatpMetro WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = lyrod.RatpMetro.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Release;
+		};
+		7B5BF92221AC14DF000E5FF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RatpMetro/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lyrod.RatpMetro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7B5BF92321AC14DF000E5FF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RatpMetro/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lyrod.RatpMetro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7B5BF92521AC14DF000E5FF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RatpMetroTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lyrod.RatpMetroTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RatpMetro.app/RatpMetro";
+			};
+			name = Debug;
+		};
+		7B5BF92621AC14DF000E5FF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RatpMetroTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lyrod.RatpMetroTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RatpMetro.app/RatpMetro";
+			};
+			name = Release;
+		};
+		7B5BF92821AC14DF000E5FF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RatpMetroUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lyrod.RatpMetroUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RatpMetro;
+			};
+			name = Debug;
+		};
+		7B5BF92921AC14DF000E5FF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RatpMetroUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lyrod.RatpMetroUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RatpMetro;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7B5BF8CA21AC14DD000E5FF6 /* Build configuration list for PBXProject "RatpMetro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B5BF91721AC14DF000E5FF6 /* Debug */,
+				7B5BF91821AC14DF000E5FF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B5BF91921AC14DF000E5FF6 /* Build configuration list for PBXNativeTarget "RatpMetro WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B5BF91A21AC14DF000E5FF6 /* Debug */,
+				7B5BF91B21AC14DF000E5FF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B5BF91D21AC14DF000E5FF6 /* Build configuration list for PBXNativeTarget "RatpMetro WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B5BF91E21AC14DF000E5FF6 /* Debug */,
+				7B5BF91F21AC14DF000E5FF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B5BF92121AC14DF000E5FF6 /* Build configuration list for PBXNativeTarget "RatpMetro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B5BF92221AC14DF000E5FF6 /* Debug */,
+				7B5BF92321AC14DF000E5FF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B5BF92421AC14DF000E5FF6 /* Build configuration list for PBXNativeTarget "RatpMetroTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B5BF92521AC14DF000E5FF6 /* Debug */,
+				7B5BF92621AC14DF000E5FF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B5BF92721AC14DF000E5FF6 /* Build configuration list for PBXNativeTarget "RatpMetroUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B5BF92821AC14DF000E5FF6 /* Debug */,
+				7B5BF92921AC14DF000E5FF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7B5BF8C721AC14DD000E5FF6 /* Project object */;
+}
