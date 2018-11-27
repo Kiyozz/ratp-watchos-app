@@ -14,7 +14,7 @@ public class Fetch {
         var request = URLRequest(url: urlObject!)
         request.cachePolicy = URLRequest.CachePolicy.reloadIgnoringCacheData
         let task = URLSession.shared.dataTask(with: request, completionHandler: handler)
-        
+
         task.resume()
         
         return task
