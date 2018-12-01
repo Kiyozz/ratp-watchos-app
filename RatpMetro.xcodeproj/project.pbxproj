@@ -8,11 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7B3A8E7321ACB02B006CD9B2 /* Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3A8E7221ACB02B006CD9B2 /* Fetch.swift */; };
-		7B3A8E7421ACB0C6006CD9B2 /* Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3A8E7221ACB02B006CD9B2 /* Fetch.swift */; };
 		7B3A8E7621ACB1BE006CD9B2 /* MetroLinesPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3A8E7521ACB1BE006CD9B2 /* MetroLinesPayload.swift */; };
 		7B3A8E7721ACB230006CD9B2 /* MetroLinesPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3A8E7521ACB1BE006CD9B2 /* MetroLinesPayload.swift */; };
-		7B3A8E7921ACB452006CD9B2 /* JsonDecodeWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3A8E7821ACB452006CD9B2 /* JsonDecodeWrapper.swift */; };
-		7B3A8E7A21ACB454006CD9B2 /* JsonDecodeWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3A8E7821ACB452006CD9B2 /* JsonDecodeWrapper.swift */; };
 		7B5BF8D321AC14DD000E5FF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5BF8D221AC14DD000E5FF6 /* AppDelegate.swift */; };
 		7B5BF8D521AC14DD000E5FF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5BF8D421AC14DD000E5FF6 /* ViewController.swift */; };
 		7B5BF8D821AC14DD000E5FF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B5BF8D621AC14DD000E5FF6 /* Main.storyboard */; };
@@ -29,6 +26,11 @@
 		7B5BF91221AC14DF000E5FF6 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5BF91121AC14DF000E5FF6 /* ComplicationController.swift */; };
 		7B5BF91421AC14DF000E5FF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B5BF91321AC14DF000E5FF6 /* Assets.xcassets */; };
 		7B5BF92B21AC151B000E5FF6 /* MetroInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5BF92A21AC151B000E5FF6 /* MetroInterfaceController.swift */; };
+		7BE7B75B21B2897100E671B1 /* RatpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE7B75A21B2897100E671B1 /* RatpApi.swift */; };
+		7BE7B75C21B2B85D00E671B1 /* RatpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE7B75A21B2897100E671B1 /* RatpApi.swift */; };
+		7BE7B75D21B2C8E800E671B1 /* Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3A8E7221ACB02B006CD9B2 /* Fetch.swift */; };
+		7BE7B76121B2D72B00E671B1 /* LineRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE7B76021B2D72B00E671B1 /* LineRowType.swift */; };
+		7BE7B76421B2F5A300E671B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B5BF8FF21AC14DF000E5FF6 /* Assets.xcassets */; };
 		7BF6DC2421AE008D007017B3 /* OptionsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF6DC2321AE008D007017B3 /* OptionsInterfaceController.swift */; };
 		7BF6DC2621AE074F007017B3 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF6DC2521AE074F007017B3 /* UserDefaultsKeys.swift */; };
 		7BF6DC2721AE07B2007017B3 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF6DC2521AE074F007017B3 /* UserDefaultsKeys.swift */; };
@@ -93,7 +95,6 @@
 /* Begin PBXFileReference section */
 		7B3A8E7221ACB02B006CD9B2 /* Fetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch.swift; sourceTree = "<group>"; };
 		7B3A8E7521ACB1BE006CD9B2 /* MetroLinesPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroLinesPayload.swift; sourceTree = "<group>"; };
-		7B3A8E7821ACB452006CD9B2 /* JsonDecodeWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDecodeWrapper.swift; sourceTree = "<group>"; };
 		7B5BF8CF21AC14DD000E5FF6 /* RatpMetro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RatpMetro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5BF8D221AC14DD000E5FF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B5BF8D421AC14DD000E5FF6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +120,8 @@
 		7B5BF91521AC14DF000E5FF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B5BF91621AC14DF000E5FF6 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		7B5BF92A21AC151B000E5FF6 /* MetroInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroInterfaceController.swift; sourceTree = "<group>"; };
+		7BE7B75A21B2897100E671B1 /* RatpApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatpApi.swift; sourceTree = "<group>"; };
+		7BE7B76021B2D72B00E671B1 /* LineRowType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineRowType.swift; sourceTree = "<group>"; };
 		7BF6DC2321AE008D007017B3 /* OptionsInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsInterfaceController.swift; sourceTree = "<group>"; };
 		7BF6DC2521AE074F007017B3 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -232,6 +235,7 @@
 				7B5BF91621AC14DF000E5FF6 /* PushNotificationPayload.apns */,
 				7B5BF92A21AC151B000E5FF6 /* MetroInterfaceController.swift */,
 				7BF6DC2321AE008D007017B3 /* OptionsInterfaceController.swift */,
+				7BE7B76021B2D72B00E671B1 /* LineRowType.swift */,
 			);
 			path = "RatpMetro WatchKit Extension";
 			sourceTree = "<group>";
@@ -241,8 +245,8 @@
 			children = (
 				7B3A8E7221ACB02B006CD9B2 /* Fetch.swift */,
 				7B3A8E7521ACB1BE006CD9B2 /* MetroLinesPayload.swift */,
-				7B3A8E7821ACB452006CD9B2 /* JsonDecodeWrapper.swift */,
 				7BF6DC2521AE074F007017B3 /* UserDefaultsKeys.swift */,
+				7BE7B75A21B2897100E671B1 /* RatpApi.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -428,6 +432,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BE7B76421B2F5A300E671B1 /* Assets.xcassets in Resources */,
 				7B5BF91421AC14DF000E5FF6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,9 +447,9 @@
 				7B3A8E7321ACB02B006CD9B2 /* Fetch.swift in Sources */,
 				7B5BF8D521AC14DD000E5FF6 /* ViewController.swift in Sources */,
 				7B5BF8D321AC14DD000E5FF6 /* AppDelegate.swift in Sources */,
+				7BE7B75B21B2897100E671B1 /* RatpApi.swift in Sources */,
 				7B3A8E7621ACB1BE006CD9B2 /* MetroLinesPayload.swift in Sources */,
 				7BF6DC2721AE07B2007017B3 /* UserDefaultsKeys.swift in Sources */,
-				7B3A8E7921ACB452006CD9B2 /* JsonDecodeWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,14 +474,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BF6DC2421AE008D007017B3 /* OptionsInterfaceController.swift in Sources */,
-				7B3A8E7421ACB0C6006CD9B2 /* Fetch.swift in Sources */,
-				7B3A8E7A21ACB454006CD9B2 /* JsonDecodeWrapper.swift in Sources */,
 				7B5BF91021AC14DF000E5FF6 /* NotificationController.swift in Sources */,
 				7BF6DC2621AE074F007017B3 /* UserDefaultsKeys.swift in Sources */,
 				7B5BF92B21AC151B000E5FF6 /* MetroInterfaceController.swift in Sources */,
 				7B5BF91221AC14DF000E5FF6 /* ComplicationController.swift in Sources */,
 				7B5BF90E21AC14DF000E5FF6 /* ExtensionDelegate.swift in Sources */,
+				7BE7B75D21B2C8E800E671B1 /* Fetch.swift in Sources */,
 				7B3A8E7721ACB230006CD9B2 /* MetroLinesPayload.swift in Sources */,
+				7BE7B76121B2D72B00E671B1 /* LineRowType.swift in Sources */,
+				7BE7B75C21B2B85D00E671B1 /* RatpApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

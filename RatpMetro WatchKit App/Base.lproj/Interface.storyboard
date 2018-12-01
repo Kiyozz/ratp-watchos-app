@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch42" orientation="portrait">
+    <device id="watch44" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -22,60 +22,64 @@
                                     </connections>
                                 </button>
                             </items>
-                            <edgeInsets key="margins" left="0.0" right="0.0" top="10" bottom="0.0"/>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="2" bottom="0.0"/>
                         </group>
-                        <group width="1" alignment="left" id="xcu-It-3Z7">
+                        <table alignment="left" id="Xz0-Gc-Rad">
                             <items>
-                                <group alignment="center" verticalAlignment="center" id="pyV-ON-4qS">
-                                    <items>
-                                        <imageView width="35" height="35" alignment="left" verticalAlignment="center" image="m4" id="Saq-QL-7FL"/>
-                                        <group width="1" alignment="left" verticalAlignment="center" layout="vertical" id="kNI-3k-Kob">
-                                            <items>
-                                                <label alignment="left" text="..." id="wxA-DW-JdG">
-                                                    <fontDescription key="font" type="system" pointSize="16"/>
-                                                </label>
-                                                <label alignment="left" text="..." id="QXY-JG-Hq9">
-                                                    <fontDescription key="font" type="system" pointSize="16"/>
-                                                </label>
-                                            </items>
-                                            <edgeInsets key="margins" left="10" right="0.0" top="0.0" bottom="0.0"/>
-                                        </group>
-                                    </items>
-                                </group>
+                                <tableRow identifier="LineRowType" selectable="NO" id="KsO-ag-Un0" customClass="LineRowType" customModule="RatpMetro_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" id="Stj-xO-M9V">
+                                        <items>
+                                            <group width="1" alignment="left" hidden="YES" layout="vertical" id="xcu-It-3Z7">
+                                                <items>
+                                                    <label alignment="center" text="..." id="acs-OA-cEL">
+                                                        <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                    </label>
+                                                    <group width="1" alignment="left" id="pyV-ON-4qS">
+                                                        <items>
+                                                            <imageView width="35" height="35" alignment="left" image="m4" id="Saq-QL-7FL"/>
+                                                            <group width="1" alignment="left" verticalAlignment="center" layout="vertical" id="Jrh-Hr-gNO">
+                                                                <items>
+                                                                    <label alignment="right" text="..." id="mW1-fo-Vqy">
+                                                                        <fontDescription key="font" type="system" weight="thin" pointSize="12"/>
+                                                                    </label>
+                                                                    <label alignment="right" text="..." id="PDu-Kr-QR4">
+                                                                        <fontDescription key="font" type="system" weight="thin" pointSize="12"/>
+                                                                    </label>
+                                                                </items>
+                                                                <edgeInsets key="margins" left="10" right="0.0" top="0.0" bottom="0.0"/>
+                                                                <variation key="device=watch38mm" widthAdjustment="-37"/>
+                                                                <variation key="device=watch40mm" widthAdjustment="-38"/>
+                                                                <variation key="device=watch42mm" widthAdjustment="-35"/>
+                                                                <variation key="device=watch44mm" widthAdjustment="-37"/>
+                                                            </group>
+                                                        </items>
+                                                    </group>
+                                                </items>
+                                                <edgeInsets key="margins" left="0.0" right="0.0" top="6" bottom="6"/>
+                                            </group>
+                                        </items>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="firstLabel" destination="mW1-fo-Vqy" id="Tsd-Ga-3WP"/>
+                                        <outlet property="lineGroup" destination="xcu-It-3Z7" id="AYx-bl-6ZR"/>
+                                        <outlet property="lineImage" destination="Saq-QL-7FL" id="GQ7-cE-OpH"/>
+                                        <outlet property="secondLabel" destination="PDu-Kr-QR4" id="VZ1-1D-ahR"/>
+                                        <outlet property="titleLabel" destination="acs-OA-cEL" id="jwc-El-7dz"/>
+                                    </connections>
+                                </tableRow>
                             </items>
-                            <edgeInsets key="margins" left="0.0" right="0.0" top="5" bottom="0.0"/>
-                        </group>
-                        <group width="1" alignment="left" id="TiX-O1-8hG">
-                            <items>
-                                <group alignment="center" verticalAlignment="center" id="liA-56-ogS">
-                                    <items>
-                                        <imageView width="35" height="35" alignment="left" verticalAlignment="center" image="m6" id="9J2-7m-NzF"/>
-                                        <group width="1" alignment="left" verticalAlignment="center" layout="vertical" id="l5W-9g-g3T">
-                                            <items>
-                                                <label alignment="left" text="..." id="j0K-AX-8xm">
-                                                    <fontDescription key="font" type="system" pointSize="16"/>
-                                                </label>
-                                                <label alignment="left" text="..." id="v94-WY-FlK">
-                                                    <fontDescription key="font" type="system" pointSize="16"/>
-                                                </label>
-                                            </items>
-                                            <edgeInsets key="margins" left="10" right="0.0" top="0.0" bottom="0.0"/>
-                                        </group>
-                                    </items>
-                                </group>
-                            </items>
-                            <edgeInsets key="margins" left="0.0" right="0.0" top="5" bottom="0.0"/>
-                        </group>
+                        </table>
                         <group width="1" alignment="left" hidden="YES" layout="vertical" spacing="0.0" id="aqM-L5-LbO">
                             <items>
                                 <group width="1" alignment="left" id="ezs-8a-PVh">
                                     <items>
-                                        <label alignment="center" text="No lines selected" id="1yA-yK-EVl"/>
+                                        <label alignment="center" text="Aucune ligne n'a" id="1yA-yK-EVl"/>
                                     </items>
                                 </group>
                                 <group width="1" alignment="left" id="Ds0-G7-7Wd">
                                     <items>
-                                        <label alignment="center" text="in options" id="H3A-ja-tKz"/>
+                                        <label alignment="center" text="été sélectionnée" id="H3A-ja-tKz"/>
                                     </items>
                                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                 </group>
@@ -83,12 +87,7 @@
                         </group>
                     </items>
                     <connections>
-                        <outlet property="m4FirstLabel" destination="wxA-DW-JdG" id="hi1-jQ-tlG"/>
-                        <outlet property="m4Group" destination="xcu-It-3Z7" id="dBu-ov-dXz"/>
-                        <outlet property="m4SecondLabel" destination="QXY-JG-Hq9" id="Blo-p4-771"/>
-                        <outlet property="m6FirstLabel" destination="j0K-AX-8xm" id="b9y-tM-IGi"/>
-                        <outlet property="m6Group" destination="TiX-O1-8hG" id="8w8-VD-uAN"/>
-                        <outlet property="m6SecondLabel" destination="v94-WY-FlK" id="maD-hH-Ejp"/>
+                        <outlet property="lineTable" destination="Xz0-Gc-Rad" id="uwo-OM-lr7"/>
                         <outlet property="noLineSelectedGroup" destination="aqM-L5-LbO" id="WA2-ud-miF"/>
                     </connections>
                 </controller>
@@ -104,7 +103,7 @@
                             <items>
                                 <group width="1" alignment="left" id="iUF-EM-i43">
                                     <items>
-                                        <switch width="1" alignment="left" value="YES" title="Line 4" id="dyc-6h-DuM">
+                                        <switch width="1" alignment="left" value="YES" title="Ligne 4" id="dyc-6h-DuM">
                                             <connections>
                                                 <action selector="onLine4SwitchChange:" destination="juO-HA-do4" id="vID-3Q-Yj6"/>
                                             </connections>
@@ -118,7 +117,7 @@
                             <items>
                                 <group width="1" alignment="left" id="GDP-JT-kzk">
                                     <items>
-                                        <switch width="1" alignment="left" value="YES" title="Line 6" id="CEJ-tl-5xP">
+                                        <switch width="1" alignment="left" value="YES" title="Ligne 6" id="CEJ-tl-5xP">
                                             <connections>
                                                 <action selector="onLine6SwitchChange:" destination="juO-HA-do4" id="fX0-sx-Ryb"/>
                                             </connections>
