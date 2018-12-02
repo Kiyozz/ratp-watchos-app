@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class UserDefaultsKeys {
-    public static let m4 = "line4_active"
-    public static let m6 = "line6_active"
+public class UserPreferences {
+  static let m4 = "line4_active"
+  static let m6 = "line6_active"
 }
