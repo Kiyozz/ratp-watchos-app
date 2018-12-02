@@ -8,7 +8,27 @@
 
 import Foundation
 
-public class UserPreferences {
-  static let m4 = "line4_active"
-  static let m6 = "line6_active"
+public struct UserPreferences {
+  private let m4 = "line4_active"
+  private let m6 = "line6_active"
+  
+  var m4Active: Bool {
+    set {
+      UserDefaults.standard.set(newValue, forKey: m4)
+    }
+    
+    get {
+      return UserDefaults.standard.bool(forKey: m4)
+    }
+  }
+  
+  var m6Active: Bool {
+    set {
+      UserDefaults.standard.set(newValue, forKey: m6)
+    }
+    
+    get {
+      return UserDefaults.standard.bool(forKey: m6)
+    }
+  }
 }

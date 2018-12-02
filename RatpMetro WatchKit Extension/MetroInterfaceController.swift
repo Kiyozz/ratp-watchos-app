@@ -10,221 +10,325 @@ import WatchKit
 import Foundation
 
 class MetroInterfaceController: WKInterfaceController {
-    @IBOutlet weak var lineTable: WKInterfaceTable!
-    @IBOutlet weak var noLineSelectedGroup: WKInterfaceGroup!
-    
-    let api = RatpApi()
-    let interval : TimeInterval = 40.0
+  @IBOutlet weak var ratpLinesTable: WKInterfaceTable!
+  @IBOutlet weak var noLineSelectedGroup: WKInterfaceGroup!
 
-    var timer: Timer? = nil {
-        willSet {
-            timer?.invalidate()
-        }
+  let debug = Debug(from: "MetroInterfaceController")
+  let api = RatpApi()
+  let interval: TimeInterval = 40.0
+  
+  ///
+  /// Invalidate the timer if the timer changes
+  ///
+  var timer: Timer? = nil {
+    willSet {
+      timer?.invalidate()
+    }
+  }
+  
+  ///
+  /// Cancel the session task if the task changes
+  ///
+  var m4SessionTask: URLSessionTask? {
+    willSet {
+      m4SessionTask?.cancel()
+    }
+  }
+  
+  ///
+  /// Cancel the session task if the task changes
+  ///
+  var m4RSessionTask: URLSessionTask? {
+    willSet {
+      m4RSessionTask?.cancel()
+    }
+  }
+  
+  ///
+  /// Cancel the session task if the task changes
+  ///
+  var m6SessionTask: URLSessionTask? {
+    willSet {
+      m6SessionTask?.cancel()
+    }
+  }
+  
+  ///
+  /// Cancel the session task if the task changes
+  ///
+  var m6RSessionTask: URLSessionTask? {
+    willSet {
+      m6RSessionTask?.cancel()
+    }
+  }
+
+  let preferences = UserPreferences()
+
+  var m4Active: Bool {
+    return preferences.m4Active
+  }
+  
+  var m6Active: Bool {
+    return preferences.m6Active
+  }
+
+  var numberOfActiveLines: Int {
+    if !m4Active && !m6Active {
+      return 0
+    }
+    
+    if m4Active && m6Active {
+      return 4
+    }
+    
+    return 2
+  }
+  
+  override func awake(withContext context: Any?) {
+    super.awake(withContext: context)
+  }
+  
+  override func willActivate() {
+    super.willActivate()
+    
+    debug.log("WillActivate")
+
+    // Empty the lineTable if switched from OptionsInterfaceController and number of active lines changed
+    if ratpLinesTable.numberOfRows != numberOfActiveLines {
+      resetTable()
     }
 
-    var m4FetchTask: URLSessionTask? {
-        willSet {
-            m4FetchTask?.cancel()
-        }
-    }
+    // Call API
+    fetchApiData()
     
-    var m4FetchRTask: URLSessionTask? {
-        willSet {
-            m4FetchRTask?.cancel()
-        }
+    // Do not create a new timer if another one exists
+    if timer == nil {
+      // Start the interval timer
+      startTimer()
     }
 
-    var m6FetchTask: URLSessionTask? {
-        willSet {
-            m6FetchTask?.cancel()
+    // If no line is selected, display the right text
+    handleNoLineSelected()
+  }
+  
+  override func willDisappear() {
+    super.willDisappear()
+    
+    debug.log("Disappear")
+    
+    // Cancel the interval
+    timer = nil
+    // Cancel all session tasks
+    cancelSessionTaskForM4()
+    cancelSessionTaskForM4R()
+    cancelSessionTaskForM6()
+    cancelSessionTaskForM6R()
+  }
+  
+  ///
+  /// Fetch all API data for all active lines in preferences
+  ///
+  /// - Remark:
+  /// It doesn't call API data for the tasks still in progress
+  ///
+  func fetchApiData () {
+    debug.log("Fetch API data")
+  
+    if m4Active {
+      if m4SessionTask == nil {
+        debug.log("Fetch A-4")
+        m4SessionTask = getApiData(forLine: .m4, to: .A) {
+          self.cancelSessionTaskForM4()
         }
+      }
+      
+      if m4RSessionTask == nil {
+        debug.log("Fetch R-4")
+        m4RSessionTask = getApiData(forLine: .m4, to: .R) {
+          self.cancelSessionTaskForM4R()
+        }
+      }
     }
     
-    var m6FetchRTask: URLSessionTask? {
-        willSet {
-            m6FetchRTask?.cancel()
+    if m6Active {
+      if m6SessionTask == nil {
+        debug.log("Fetch A-6")
+        m6SessionTask = getApiData(forLine: .m6, to: .A) {
+          self.cancelSessionTaskForM6()
         }
+      }
+      
+      if m6RSessionTask == nil {
+        debug.log("Fetch R-6")
+        m6RSessionTask = getApiData(forLine: .m6, to: .R) {
+          self.cancelSessionTaskForM6R()
+        }
+      }
     }
+  }
+  
+  ///
+  /// Handle Schedules retrieves from API
+  ///
+  /// - parameters:
+  ///   - line: Line
+  ///   - direction: Direction
+  ///   - schedules: Schedule array retrieves from API
+  ///
+  func handleSchedules(for line: RatpLine, to direction: RatpDirection, with schedules: [RatpSchedule]) {
+    ratpLinesTable.setHidden(false) // Display the table if it was hidden
     
-    var m4Active: Bool = false
-    var m6Active: Bool = false
+    guard let row = getTableRow(forLine: line, to: direction) else { return }
     
-    override func awake(withContext context: Any?) {
-        super.awake(withContext: context)
-    }
+    let firstSchedule = schedules[0]
+    let secondSchedule = schedules[1]
     
-    override func willActivate() {
-        super.willActivate()
-        
-        print("WillActivate")
-        
-        m4Active = UserDefaults.standard.bool(forKey: UserDefaultsKeys.m4) // Get User choosen line
-        m6Active = UserDefaults.standard.bool(forKey: UserDefaultsKeys.m6) // Get User choosen line
-        
-        if lineTable.numberOfRows != numberOfActiveLines() { // Empty the lineTable if switched from Options Page and change number of active lines
-            for i in 0...lineTable.numberOfRows {
-                lineTable.removeRows(at: [i])
-            }
-            
-            lineTable.setHidden(true)
-            lineTable.setNumberOfRows(numberOfActiveLines(), withRowType: "LineRowType")
-        }
-        
-        callFetch(m4: m4Active, m6: m6Active) // Call API
-        startTimer() // Start the interval timer
-        
-        if !m4Active && !m6Active {
-            noLineSelectedGroup.setHidden(false)
-        } else {
-            noLineSelectedGroup.setHidden(true) // Display no line label if no line is selected in options
-        }
+    row.lineGroup.setHidden(false)
+    row.firstLabel.setText(firstSchedule.message)
+    row.secondLabel.setText(secondSchedule.message)
+    row.titleLabel.setText(firstSchedule.destination)
+    row.lineImage.setImageNamed("m\(line.rawValue).png")
+  }
+  
+  ///
+  /// Handle API error before handle schedules
+  ///
+  /// - parameters:
+  ///   - schedules: Schedule array retrieves from API or nil on error
+  ///   - line: Line
+  ///   - direction: Direction
+  ///   - error: API Error or nil
+  ///
+  /// - SeeAlso: `handleSchedules(for:to:with:)`
+  ///
+  func handleFetchData(_ schedules: [RatpSchedule]?, line: RatpLine, to direction: RatpDirection, error: Error?) {
+    if error != nil {
+      debug.log(error!)
+
+      return
     }
 
-    override func willDisappear() {
-        super.willDisappear()
-        
-        print("Disappear")
-
-        timer = nil // Cancel the interval
-
-        taskM4Done() // Mark all task as cancelled
-        taskM4RDone()
-        taskM6Done()
-        taskM6RDone()
+    guard let schedules = schedules else { return }
+    
+    handleSchedules(for: line, to: direction, with: schedules)
+  }
+  
+  ///
+  /// Get the API data for the line and direction
+  ///
+  /// - parameters:
+  ///   - line: The line
+  ///   - direction: The direction
+  ///   - then: Closure called when request ends
+  ///
+  /// - returns:
+  /// Session Task for this HTTP Request
+  ///
+  func getApiData(forLine line: RatpLine, to direction: RatpDirection, then: @escaping () -> Void) -> URLSessionTask {
+    return api.schedules(forLine: line, to: direction, then: { schedules, error in
+      then()
+      
+      self.debug.log("Fetch \(direction.rawValue)-\(line.rawValue) : done")
+      
+      self.handleFetchData(schedules, line: line, to: direction, error: error)
+    })
+  }
+  
+  ///
+  /// Start an interval timer to fetch all API data
+  ///
+  func startTimer() {
+    timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true, block: { _ in
+      self.fetchApiData() // After self.interval has passed, call API
+    })
+  }
+  
+  ///
+  /// Get the rowController in the WKInterfaceTable for the line and direction
+  ///
+  /// - parameters:
+  ///   - line: The line
+  ///   - direction: The direction
+  ///
+  /// - returns:
+  /// Optional(LineRowType)
+  ///
+  func getTableRow(forLine line: RatpLine, to direction: RatpDirection) -> LineRowType? {
+    var index = 0
+    
+    switch ratpLinesTable.numberOfRows { // The rowController index changes from the number of rows in the table
+    case 2:
+      if direction == .A {
+        index = 0
+      } else {
+        index = 1
+      }
+    case 0:
+      return nil
+    default:
+      if m4Active && line == .m4 && direction == .A {
+        index = 0
+      } else if m4Active && line == .m4 && direction == .R {
+        index = 1
+      } else if m6Active && line == .m6 && direction == .A {
+        index = 2
+      } else {
+        index = ratpLinesTable.numberOfRows - 1
+      }
     }
     
-    func startTimer() {
-        if let _ = timer { // Do not create a new timer if another one exists
-            return
-        }
-        
-        timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true, block: { _ in
-            self.callFetch(m4: self.m4Active, m6: self.m6Active) // After self.interval passed, call API
-        })
-    }
+    return ratpLinesTable.rowController(at: index) as? LineRowType
+  }
+  
+  ///
+  /// Cancel the API Session Task
+  ///
+  func cancelSessionTaskForM4() {
+    m4SessionTask = nil
+  }
+  
+  ///
+  /// Cancel the API Session Task
+  ///
+  func cancelSessionTaskForM6() {
+    m6SessionTask = nil
+  }
+  
+  ///
+  /// Cancel the API Session Task
+  ///
+  func cancelSessionTaskForM4R() {
+    m4RSessionTask = nil
+  }
+  
+  ///
+  /// Cancel the API Session Task
+  ///
+  func cancelSessionTaskForM6R() {
+    m6RSessionTask = nil
+  }
+  
+  ///
+  /// Reset the table
+  ///
+  /// - SeeAlso: `self.numberOfActiveLines`
+  ///
+  func resetTable() {
+    let linesToDelete = IndexSet(Array(0...ratpLinesTable.numberOfRows))
+    ratpLinesTable.removeRows(at: linesToDelete)
     
-    func handleSchedules(for line: RatpLines, and direction: RatpScheduleDirection, with schedules: [Schedule]?) {
-        guard let schedules = schedules else { return } // If no schedules, do nothing
-        
-        lineTable.setHidden(false) // Display the table if it was hidden
-
-        guard let activeIndex = getControllerIndex(forLine: line, to: direction) else { return }
-
-        let row = lineTable.rowController(at: activeIndex) as! LineRowType
-        
-        let firstSchedule = schedules[0] // Get the first schedule
-        let secondSchedule = schedules[1] // Get the second schedule
-        
-        row.lineGroup.setHidden(false) // Display the group
-        row.firstLabel.setText(firstSchedule.message) // Change the text with schedule's
-        row.secondLabel.setText(secondSchedule.message) // Change the text with schedule's
-        row.titleLabel.setText(firstSchedule.destination) // Change the direction with schedule's
-        row.lineImage.setImageNamed("m\(line.rawValue).png") // Change the image with schedule's
+    ratpLinesTable.setHidden(true)
+    ratpLinesTable.setNumberOfRows(numberOfActiveLines, withRowType: "LineRowType")
+  }
+  
+  ///
+  /// Hide or display the noLineSelected text if no lines are active
+  ///
+  func handleNoLineSelected() {
+    if !m4Active && !m6Active {
+      noLineSelectedGroup.setHidden(false)
+    } else {
+      noLineSelectedGroup.setHidden(true) // Display no line label if no line is selected in options
     }
-    
-    func callFetch (m4: Bool, m6: Bool) {
-        print("fetch")
-        if m4Active {
-            if m4FetchTask == nil {
-                print("fetch m4A")
-                m4FetchTask = api.getSchedules(forLine: .m4, to: .A, handler: { (schedules, error) in
-                    if error != nil {
-                        print(error!)
-                    }
-                    
-                    self.handleSchedules(for: .m4, and: .A, with: schedules)
-                    self.taskM4Done()
-                })
-            }
-            
-            if m4FetchRTask == nil {
-                print("fetch m4R")
-                m4FetchRTask = api.getSchedules(forLine: .m4, to: .R, handler: { (schedules, error) in
-                    if error != nil {
-                        print(error!)
-                    }
-                    
-                    self.handleSchedules(for: .m4, and: .R, with: schedules)
-                    self.taskM4RDone()
-                })
-            }
-        }
-        
-        if m6Active {
-            if m6FetchTask == nil {
-                print("fetch m6A")
-                m6FetchTask = api.getSchedules(forLine: .m6, to: .A, handler: { (schedules, error) in
-                    if error != nil {
-                        print(error!)
-                    }
-                    
-                    self.handleSchedules(for: .m6, and: .A, with: schedules)
-                    self.taskM6Done()
-                })
-            }
-            
-            if m6FetchRTask == nil {
-                print("fetch m6R")
-                m6FetchRTask = api.getSchedules(forLine: .m6, to: .R, handler: { (schedules, error) in
-                    if error != nil {
-                        print(error!)
-                    }
-                    
-                    self.handleSchedules(for: .m6, and: .R, with: schedules)
-                    self.taskM6RDone()
-                })
-            }
-        }
-    }
-    
-    func taskM4Done() {
-        m4FetchTask = nil
-    }
-    
-    func taskM6Done() {
-        m6FetchTask = nil
-    }
-    
-    func taskM4RDone() {
-        m4FetchRTask = nil
-    }
-    
-    func taskM6RDone() {
-        m6FetchRTask = nil
-    }
-    
-    func numberOfActiveLines() -> Int {
-        if !m4Active && !m6Active {
-            return 0
-        }
-        
-        if m4Active && m6Active {
-            return 4
-        }
-        
-        return 2
-    }
-    
-    func getControllerIndex(forLine line: RatpLines, to direction: RatpScheduleDirection) -> Int? {
-        switch lineTable.numberOfRows { // Depends of number of rows, the rowController index changes
-        case 2:
-            if direction == .A {
-                return 0
-            } else {
-                return 1
-            }
-        case 0:
-            return nil
-        default:
-            if m4Active && line == .m4 && direction == .A {
-                return 0
-            } else if m4Active && line == .m4 && direction == .R {
-                return 1
-            } else if m6Active && line == .m6 && direction == .A {
-                return 2
-            } else {
-                return lineTable.numberOfRows - 1
-            }
-        }
-    }
+  }
 }

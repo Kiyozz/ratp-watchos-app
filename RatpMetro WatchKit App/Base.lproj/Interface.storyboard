@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch44" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14460.16"/>
     </dependencies>
@@ -87,8 +83,8 @@
                         </group>
                     </items>
                     <connections>
-                        <outlet property="lineTable" destination="Xz0-Gc-Rad" id="uwo-OM-lr7"/>
                         <outlet property="noLineSelectedGroup" destination="aqM-L5-LbO" id="WA2-ud-miF"/>
+                        <outlet property="ratpLinesTable" destination="Xz0-Gc-Rad" id="uwo-OM-lr7"/>
                     </connections>
                 </controller>
             </objects>

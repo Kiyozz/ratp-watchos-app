@@ -10,9 +10,9 @@ import Foundation
 import WatchKit
 
 class LineRowType : NSObject {
-    @IBOutlet weak var lineGroup: WKInterfaceGroup!
-    @IBOutlet weak var titleLabel: WKInterfaceLabel!
-    @IBOutlet weak var lineImage: WKInterfaceImage!
-    @IBOutlet weak var firstLabel: WKInterfaceLabel!
-    @IBOutlet weak var secondLabel: WKInterfaceLabel!
+  @IBOutlet weak var lineGroup: WKInterfaceGroup!
+  @IBOutlet weak var titleLabel: WKInterfaceLabel!
+  @IBOutlet weak var lineImage: WKInterfaceImage!
+  @IBOutlet weak var firstLabel: WKInterfaceLabel!
+  @IBOutlet weak var secondLabel: WKInterfaceLabel!
 }

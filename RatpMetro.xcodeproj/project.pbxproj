@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B05FF1121B4859F00E752BF /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B05FF1021B4859F00E752BF /* Debug.swift */; };
+		7B05FF1221B4865600E752BF /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B05FF1021B4859F00E752BF /* Debug.swift */; };
 		7B3A8E7321ACB02B006CD9B2 /* Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3A8E7221ACB02B006CD9B2 /* Fetch.swift */; };
-		7B3A8E7621ACB1BE006CD9B2 /* MetroLinesPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3A8E7521ACB1BE006CD9B2 /* MetroLinesPayload.swift */; };
-		7B3A8E7721ACB230006CD9B2 /* MetroLinesPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3A8E7521ACB1BE006CD9B2 /* MetroLinesPayload.swift */; };
 		7B5BF8D321AC14DD000E5FF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5BF8D221AC14DD000E5FF6 /* AppDelegate.swift */; };
 		7B5BF8D521AC14DD000E5FF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5BF8D421AC14DD000E5FF6 /* ViewController.swift */; };
 		7B5BF8D821AC14DD000E5FF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B5BF8D621AC14DD000E5FF6 /* Main.storyboard */; };
@@ -32,8 +32,8 @@
 		7BE7B76121B2D72B00E671B1 /* LineRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE7B76021B2D72B00E671B1 /* LineRowType.swift */; };
 		7BE7B76421B2F5A300E671B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B5BF8FF21AC14DF000E5FF6 /* Assets.xcassets */; };
 		7BF6DC2421AE008D007017B3 /* OptionsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF6DC2321AE008D007017B3 /* OptionsInterfaceController.swift */; };
-		7BF6DC2621AE074F007017B3 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF6DC2521AE074F007017B3 /* UserDefaultsKeys.swift */; };
-		7BF6DC2721AE07B2007017B3 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF6DC2521AE074F007017B3 /* UserDefaultsKeys.swift */; };
+		7BF6DC2621AE074F007017B3 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF6DC2521AE074F007017B3 /* UserPreferences.swift */; };
+		7BF6DC2721AE07B2007017B3 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF6DC2521AE074F007017B3 /* UserPreferences.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,8 +93,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7B05FF1021B4859F00E752BF /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		7B3A8E7221ACB02B006CD9B2 /* Fetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch.swift; sourceTree = "<group>"; };
-		7B3A8E7521ACB1BE006CD9B2 /* MetroLinesPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroLinesPayload.swift; sourceTree = "<group>"; };
 		7B5BF8CF21AC14DD000E5FF6 /* RatpMetro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RatpMetro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5BF8D221AC14DD000E5FF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B5BF8D421AC14DD000E5FF6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 		7BE7B75A21B2897100E671B1 /* RatpApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatpApi.swift; sourceTree = "<group>"; };
 		7BE7B76021B2D72B00E671B1 /* LineRowType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineRowType.swift; sourceTree = "<group>"; };
 		7BF6DC2321AE008D007017B3 /* OptionsInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsInterfaceController.swift; sourceTree = "<group>"; };
-		7BF6DC2521AE074F007017B3 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
+		7BF6DC2521AE074F007017B3 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,9 +244,9 @@
 			isa = PBXGroup;
 			children = (
 				7B3A8E7221ACB02B006CD9B2 /* Fetch.swift */,
-				7B3A8E7521ACB1BE006CD9B2 /* MetroLinesPayload.swift */,
-				7BF6DC2521AE074F007017B3 /* UserDefaultsKeys.swift */,
+				7BF6DC2521AE074F007017B3 /* UserPreferences.swift */,
 				7BE7B75A21B2897100E671B1 /* RatpApi.swift */,
+				7B05FF1021B4859F00E752BF /* Debug.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -445,11 +445,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B3A8E7321ACB02B006CD9B2 /* Fetch.swift in Sources */,
+				7B05FF1121B4859F00E752BF /* Debug.swift in Sources */,
 				7B5BF8D521AC14DD000E5FF6 /* ViewController.swift in Sources */,
 				7B5BF8D321AC14DD000E5FF6 /* AppDelegate.swift in Sources */,
 				7BE7B75B21B2897100E671B1 /* RatpApi.swift in Sources */,
-				7B3A8E7621ACB1BE006CD9B2 /* MetroLinesPayload.swift in Sources */,
-				7BF6DC2721AE07B2007017B3 /* UserDefaultsKeys.swift in Sources */,
+				7BF6DC2721AE07B2007017B3 /* UserPreferences.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,13 +474,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BF6DC2421AE008D007017B3 /* OptionsInterfaceController.swift in Sources */,
+				7B05FF1221B4865600E752BF /* Debug.swift in Sources */,
 				7B5BF91021AC14DF000E5FF6 /* NotificationController.swift in Sources */,
-				7BF6DC2621AE074F007017B3 /* UserDefaultsKeys.swift in Sources */,
+				7BF6DC2621AE074F007017B3 /* UserPreferences.swift in Sources */,
 				7B5BF92B21AC151B000E5FF6 /* MetroInterfaceController.swift in Sources */,
 				7B5BF91221AC14DF000E5FF6 /* ComplicationController.swift in Sources */,
 				7B5BF90E21AC14DF000E5FF6 /* ExtensionDelegate.swift in Sources */,
 				7BE7B75D21B2C8E800E671B1 /* Fetch.swift in Sources */,
-				7B3A8E7721ACB230006CD9B2 /* MetroLinesPayload.swift in Sources */,
 				7BE7B76121B2D72B00E671B1 /* LineRowType.swift in Sources */,
 				7BE7B75C21B2B85D00E671B1 /* RatpApi.swift in Sources */,
 			);
