@@ -35,7 +35,7 @@ class StationInterfaceController: WKInterfaceController, StationInterface {
     
     debug.log("awake")
     
-    setTitle("")
+    setTitle("Choisir son arrêt")
     
     if let context = context as? Dictionary<String, Any> {
       let line = context["line"] as! RatpLine
@@ -91,20 +91,20 @@ class StationInterfaceController: WKInterfaceController, StationInterface {
     debug.log("Click on \(slug)")
     
     guard let controller = controller else {
-      self.dismiss()
+      pop()
       
       return
     }
     
     guard let line = line else {
-      self.dismiss()
+      pop()
       
       return
     }
     
     controller.stationForLine[line] = (slug, name)
-    controller.willDismiss()
+    controller.willPop()
     
-    self.dismiss()
+    pop()
   }
 }

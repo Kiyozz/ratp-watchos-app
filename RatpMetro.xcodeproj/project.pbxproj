@@ -14,6 +14,8 @@
 		7B2735CC21BC76330062273E /* OptionStationLineRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2735CB21BC76330062273E /* OptionStationLineRowType.swift */; };
 		7B2735CE21BC8F760062273E /* StationRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2735CD21BC8F760062273E /* StationRowType.swift */; };
 		7B3A8E7321ACB02B006CD9B2 /* Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3A8E7221ACB02B006CD9B2 /* Fetch.swift */; };
+		7B46E7E321BD6ADB0048490E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46E7E221BD6ADB0048490E /* Color.swift */; };
+		7B46E7E421BD6B770048490E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46E7E221BD6ADB0048490E /* Color.swift */; };
 		7B5BF8D321AC14DD000E5FF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5BF8D221AC14DD000E5FF6 /* AppDelegate.swift */; };
 		7B5BF8D521AC14DD000E5FF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5BF8D421AC14DD000E5FF6 /* ViewController.swift */; };
 		7B5BF8D821AC14DD000E5FF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B5BF8D621AC14DD000E5FF6 /* Main.storyboard */; };
@@ -103,6 +105,7 @@
 		7B2735CB21BC76330062273E /* OptionStationLineRowType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionStationLineRowType.swift; sourceTree = "<group>"; };
 		7B2735CD21BC8F760062273E /* StationRowType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationRowType.swift; sourceTree = "<group>"; };
 		7B3A8E7221ACB02B006CD9B2 /* Fetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch.swift; sourceTree = "<group>"; };
+		7B46E7E221BD6ADB0048490E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		7B5BF8CF21AC14DD000E5FF6 /* RatpMetro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RatpMetro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5BF8D221AC14DD000E5FF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B5BF8D421AC14DD000E5FF6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +186,15 @@
 				7B5BF91121AC14DF000E5FF6 /* ComplicationController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7B46E7DD21BD5AE70048490E /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				7BE7B75A21B2897100E671B1 /* RatpApi.swift */,
+				7B3A8E7221ACB02B006CD9B2 /* Fetch.swift */,
+			);
+			path = Api;
 			sourceTree = "<group>";
 		};
 		7B5BF8C621AC14DD000E5FF6 = {
@@ -271,10 +283,10 @@
 		7B5BF92C21AC1653000E5FF6 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				7B3A8E7221ACB02B006CD9B2 /* Fetch.swift */,
+				7B46E7DD21BD5AE70048490E /* Api */,
 				7BF6DC2521AE074F007017B3 /* UserPreferences.swift */,
-				7BE7B75A21B2897100E671B1 /* RatpApi.swift */,
 				7B05FF1021B4859F00E752BF /* Debug.swift */,
+				7B46E7E221BD6ADB0048490E /* Color.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -474,6 +486,7 @@
 			files = (
 				7B3A8E7321ACB02B006CD9B2 /* Fetch.swift in Sources */,
 				7B05FF1121B4859F00E752BF /* Debug.swift in Sources */,
+				7B46E7E321BD6ADB0048490E /* Color.swift in Sources */,
 				7B5BF8D521AC14DD000E5FF6 /* ViewController.swift in Sources */,
 				7B5BF8D321AC14DD000E5FF6 /* AppDelegate.swift in Sources */,
 				7BE7B75B21B2897100E671B1 /* RatpApi.swift in Sources */,
@@ -509,6 +522,7 @@
 				7B2735CE21BC8F760062273E /* StationRowType.swift in Sources */,
 				7BF6DC2621AE074F007017B3 /* UserPreferences.swift in Sources */,
 				7B2735CA21BC74EE0062273E /* OptionStationLineInterfaceController.swift in Sources */,
+				7B46E7E421BD6B770048490E /* Color.swift in Sources */,
 				7B5BF92B21AC151B000E5FF6 /* MetroInterfaceController.swift in Sources */,
 				7B5BF91221AC14DF000E5FF6 /* ComplicationController.swift in Sources */,
 				7B5BF90E21AC14DF000E5FF6 /* ExtensionDelegate.swift in Sources */,

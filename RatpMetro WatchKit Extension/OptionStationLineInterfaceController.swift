@@ -24,6 +24,8 @@ class OptionStationLineInterfaceController: WKInterfaceController {
     
     debug.log("awake")
     
+    setTitle("Choisir la ligne")
+    
     if let context = context as? OptionsInterfaceController {
       delegate = context
     }
@@ -39,8 +41,8 @@ class OptionStationLineInterfaceController: WKInterfaceController {
     return ["line": controller.line, "controller": self]
   }
   
-  func willDismiss() {
-    debug.log("willDismiss")
+  func willPop() {
+    debug.log("willPop")
     
     for (line, (slug, name)) in stationForLine {
       switch line {

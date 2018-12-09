@@ -14,14 +14,14 @@
 
 import Foundation
 
-public struct RatpSchedule: Decodable {
-  let message: String
-  let destination: String
-}
-
 public struct RatpStation: Decodable {
   let slug: String
   let name: String
+}
+
+public struct RatpSchedule: Decodable {
+  let message: String
+  let destination: String
 }
 
 class RatpResponse {

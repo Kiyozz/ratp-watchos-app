@@ -196,6 +196,7 @@ class MetroInterfaceController: WKInterfaceController {
     
     guard let row = getTableRow(forLine: line, to: direction) else { return }
     
+    let color = RatpColor(line)
     let firstSchedule = schedules[0]
 
     if schedules.count > 1 {
@@ -206,7 +207,8 @@ class MetroInterfaceController: WKInterfaceController {
     row.lineGroup.setHidden(false)
     row.firstLabel.setText(firstSchedule.message)
     row.titleLabel.setText(firstSchedule.destination)
-    row.lineImage.setImageNamed("m\(line.rawValue).png")
+    row.lineImageTitle.setText("\(line.rawValue)")
+    row.lineGroup.setBackgroundColor(color.getUIColor())
   }
   
   ///

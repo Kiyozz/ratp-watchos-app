@@ -14,30 +14,26 @@
             <objects>
                 <controller identifier="Metro" title="Metro" hidesWhenLoading="NO" id="AgC-eL-Hgc" customClass="MetroInterfaceController" customModule="RatpMetro_WatchKit_Extension">
                     <items>
-                        <group width="1" alignment="left" id="lJ5-Hz-rxA">
-                            <items>
-                                <button width="1" alignment="left" title="Options" id="YYe-Wl-tOP">
-                                    <connections>
-                                        <segue destination="juO-HA-do4" kind="push" id="Vdh-yt-em7"/>
-                                    </connections>
-                                </button>
-                            </items>
-                            <edgeInsets key="margins" left="0.0" right="0.0" top="2" bottom="0.0"/>
-                        </group>
                         <table alignment="left" id="Xz0-Gc-Rad">
                             <items>
                                 <tableRow identifier="LineRowType" selectable="NO" id="KsO-ag-Un0" customClass="LineRowType" customModule="RatpMetro_WatchKit_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" id="Stj-xO-M9V">
                                         <items>
-                                            <group width="1" alignment="left" hidden="YES" layout="vertical" id="xcu-It-3Z7">
+                                            <group width="1" alignment="left" hidden="YES" layout="vertical" radius="3" id="xcu-It-3Z7">
                                                 <items>
                                                     <label alignment="center" text="---" id="acs-OA-cEL">
                                                         <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                                                     </label>
                                                     <group width="1" alignment="left" id="pyV-ON-4qS">
                                                         <items>
-                                                            <imageView width="35" height="35" alignment="left" image="m4" id="Saq-QL-7FL"/>
-                                                            <group width="1" alignment="left" verticalAlignment="center" layout="vertical" id="Jrh-Hr-gNO">
+                                                            <group alignment="left" id="sbF-89-Tku">
+                                                                <items>
+                                                                    <label alignment="left" text="4" id="48f-n2-hgD">
+                                                                        <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                                                                    </label>
+                                                                </items>
+                                                            </group>
+                                                            <group alignment="right" verticalAlignment="center" layout="vertical" id="Jrh-Hr-gNO">
                                                                 <items>
                                                                     <label alignment="right" text="---" id="mW1-fo-Vqy">
                                                                         <fontDescription key="font" type="system" weight="thin" pointSize="12"/>
@@ -46,24 +42,23 @@
                                                                         <fontDescription key="font" type="system" weight="thin" pointSize="12"/>
                                                                     </label>
                                                                 </items>
-                                                                <edgeInsets key="margins" left="10" right="0.0" top="0.0" bottom="0.0"/>
-                                                                <variation key="device=watch38mm" widthAdjustment="-37"/>
-                                                                <variation key="device=watch40mm" widthAdjustment="-38"/>
-                                                                <variation key="device=watch42mm" widthAdjustment="-35"/>
-                                                                <variation key="device=watch44mm" widthAdjustment="-37"/>
+                                                                <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                                             </group>
                                                         </items>
+                                                        <edgeInsets key="margins" left="5" right="5" top="0.0" bottom="0.0"/>
                                                     </group>
                                                 </items>
-                                                <edgeInsets key="margins" left="0.0" right="0.0" top="6" bottom="6"/>
+                                                <color key="backgroundColor" red="0.68235294117647061" green="0.15686274509803921" blue="0.47843137254901957" alpha="1" colorSpace="calibratedRGB"/>
+                                                <edgeInsets key="margins" left="4" right="4" top="6" bottom="6"/>
                                             </group>
                                         </items>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                     </group>
                                     <connections>
                                         <outlet property="firstLabel" destination="mW1-fo-Vqy" id="Tsd-Ga-3WP"/>
                                         <outlet property="lineGroup" destination="xcu-It-3Z7" id="AYx-bl-6ZR"/>
-                                        <outlet property="lineImage" destination="Saq-QL-7FL" id="GQ7-cE-OpH"/>
+                                        <outlet property="lineImageTitle" destination="48f-n2-hgD" id="pyz-UI-B0x"/>
                                         <outlet property="secondLabel" destination="PDu-Kr-QR4" id="VZ1-1D-ahR"/>
                                         <outlet property="titleLabel" destination="acs-OA-cEL" id="jwc-El-7dz"/>
                                     </connections>
@@ -85,6 +80,18 @@
                                 </group>
                             </items>
                         </group>
+                        <group alignment="left" animationDuration="1" radius="3" id="lJ5-Hz-rxA">
+                            <items>
+                                <button width="1" height="25" alignment="left" title="Options" id="YYe-Wl-tOP">
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="font" type="system" weight="light" pointSize="10"/>
+                                    <connections>
+                                        <segue destination="juO-HA-do4" kind="push" id="Vdh-yt-em7"/>
+                                    </connections>
+                                </button>
+                            </items>
+                            <color key="backgroundColor" red="0.0" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </group>
                     </items>
                     <connections>
                         <outlet property="noLineSelectedGroup" destination="aqM-L5-LbO" id="WA2-ud-miF"/>
@@ -92,60 +99,65 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="51" y="364"/>
+            <point key="canvasLocation" x="37" y="167"/>
         </scene>
         <!--Options-->
         <scene sceneID="tBY-6W-PNq">
             <objects>
                 <controller identifier="Options" title="Options" id="juO-HA-do4" customClass="OptionsInterfaceController" customModule="RatpMetro_WatchKit_Extension">
                     <items>
-                        <group width="1" alignment="left" id="ryS-Jr-kN7">
+                        <group alignment="left" radius="3" id="ryS-Jr-kN7">
                             <items>
                                 <button width="1" alignment="left" title="Choisir son arrêt" id="h7Z-2I-WL1">
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="font" type="system" weight="light" pointSize="14"/>
                                     <connections>
-                                        <segue destination="2dd-qU-rHl" kind="push" id="TaH-20-fO1"/>
+                                        <segue destination="2dd-qU-rHl" kind="push" id="8pu-OF-7ww"/>
                                     </connections>
                                 </button>
                             </items>
-                            <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="3"/>
+                            <color key="backgroundColor" red="0.0" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </group>
                         <separator alignment="left" id="zYr-OK-khl">
-                            <color key="color" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                            <color key="color" red="0.0" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </separator>
                         <group width="1" alignment="left" id="5qf-oa-bnI">
                             <items>
                                 <label alignment="center" text="Activation des lignes" id="fk4-yH-ABV">
-                                    <fontDescription key="font" type="system" pointSize="11"/>
+                                    <color key="textColor" red="0.0" green="0.51764705882352935" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" type="system" weight="light" pointSize="12"/>
                                 </label>
                             </items>
                         </group>
                         <group width="1" alignment="left" layout="vertical" id="3p0-O2-sXJ">
                             <items>
-                                <group width="1" alignment="left" id="iUF-EM-i43">
+                                <group width="1" alignment="left" radius="3" id="iUF-EM-i43">
                                     <items>
                                         <switch width="1" alignment="left" value="YES" title="Ligne 4" id="dyc-6h-DuM">
+                                            <fontDescription key="font" type="system" weight="light" pointSize="14"/>
                                             <connections>
                                                 <action selector="onLine4SwitchChange:" destination="juO-HA-do4" id="vID-3Q-Yj6"/>
                                             </connections>
                                         </switch>
                                     </items>
+                                    <color key="backgroundColor" red="0.0" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </group>
                             </items>
-                            <edgeInsets key="margins" left="0.0" right="0.0" top="2" bottom="2"/>
                         </group>
                         <group width="1" alignment="left" id="799-iF-r3j">
                             <items>
-                                <group width="1" alignment="left" id="GDP-JT-kzk">
+                                <group width="1" alignment="left" radius="3" id="GDP-JT-kzk">
                                     <items>
                                         <switch width="1" alignment="left" value="YES" title="Ligne 6" id="CEJ-tl-5xP">
+                                            <fontDescription key="font" type="system" weight="light" pointSize="14"/>
                                             <connections>
                                                 <action selector="onLine6SwitchChange:" destination="juO-HA-do4" id="fX0-sx-Ryb"/>
                                             </connections>
                                         </switch>
                                     </items>
+                                    <color key="backgroundColor" red="0.0" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </group>
                             </items>
-                            <edgeInsets key="margins" left="0.0" right="0.0" top="2" bottom="0.0"/>
                         </group>
                     </items>
                     <connections>
@@ -154,7 +166,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="493" y="341"/>
+            <point key="canvasLocation" x="314" y="166"/>
         </scene>
         <!--Choisir son arrêt-->
         <scene sceneID="tms-lz-2Fn">
@@ -168,14 +180,17 @@
                                         <tableRow identifier="OptionStationLineRowType" id="DHC-1q-phb" customClass="OptionStationLineRowType" customModule="RatpMetro_WatchKit_Extension">
                                             <group key="rootItem" width="1" alignment="left" id="d7k-g8-VBh">
                                                 <items>
-                                                    <group width="1" alignment="left" id="VNA-yP-YcD">
+                                                    <group width="1" alignment="left" radius="0.0" id="VNA-yP-YcD">
                                                         <items>
                                                             <button width="1" alignment="left" title="Ligne" id="nf4-Jx-fDb">
+                                                                <color key="backgroundColor" red="0.0" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <fontDescription key="font" type="system" weight="light" pointSize="11"/>
                                                                 <connections>
-                                                                    <segue destination="27T-RI-2zC" kind="modal" id="KEY-cO-HuX"/>
+                                                                    <segue destination="27T-RI-2zC" kind="push" id="KEY-cO-HuX"/>
                                                                 </connections>
                                                             </button>
                                                         </items>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </group>
                                                 </items>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -195,7 +210,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="796" y="331"/>
+            <point key="canvasLocation" x="314" y="504"/>
         </scene>
         <!--Arrêt-->
         <scene sceneID="skK-0V-Ucg">
@@ -204,29 +219,39 @@
                     <items>
                         <group width="1" alignment="left" id="vz8-13-INS">
                             <items>
-                                <label alignment="center" text="Arrêt" id="cLE-QL-6xB"/>
+                                <label alignment="center" text="Arrêt" id="cLE-QL-6xB">
+                                    <color key="textColor" red="0.0" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" type="system" weight="light" pointSize="14"/>
+                                </label>
                             </items>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="3" bottom="0.0"/>
                         </group>
                         <group width="1" alignment="left" id="8nL-Se-edr">
                             <items>
                                 <table alignment="left" id="r8K-I1-308">
                                     <items>
                                         <tableRow identifier="StationRowType" id="K4q-OE-uuo" customClass="StationRowType" customModule="RatpMetro_WatchKit_Extension">
-                                            <group key="rootItem" width="1" height="60" alignment="left" id="y4C-sP-asA">
+                                            <group key="rootItem" width="1" height="33" alignment="left" contentMode="scaleAspectFill" id="y4C-sP-asA">
                                                 <items>
-                                                    <group width="1" height="1" alignment="left" id="jtO-K7-DF1">
+                                                    <group alignment="left" contentMode="center" radius="0.0" id="AVK-ge-uFL">
                                                         <items>
-                                                            <button width="1" height="1" alignment="left" hidden="YES" title="Station" id="kum-Vv-PYO">
-                                                                <connections>
-                                                                    <action selector="onStationClick" destination="K4q-OE-uuo" id="snX-MO-FMt"/>
-                                                                </connections>
-                                                            </button>
+                                                            <group alignment="left" radius="0.0" id="jtO-K7-DF1">
+                                                                <items>
+                                                                    <button width="1" height="1" alignment="left" title="Station" id="kum-Vv-PYO">
+                                                                        <color key="backgroundColor" red="0.0" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <fontDescription key="font" type="system" weight="light" pointSize="12"/>
+                                                                        <connections>
+                                                                            <action selector="onStationClick" destination="K4q-OE-uuo" id="snX-MO-FMt"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </items>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </group>
                                                         </items>
-                                                        <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="5"/>
                                                     </group>
                                                 </items>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="5"/>
+                                                <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                             </group>
                                             <connections>
                                                 <outlet property="nameButton" destination="kum-Vv-PYO" id="6yI-YP-wAI"/>
@@ -243,7 +268,8 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="1127" y="354"/>
+            <point key="canvasLocation" x="314" y="843"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.0" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
