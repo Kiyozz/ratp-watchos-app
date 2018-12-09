@@ -71,6 +71,17 @@ class MetroInterfaceController: WKInterfaceController {
   var m6Active: Bool {
     return preferences.m6Active
   }
+  
+  var m4Station: String {
+    return preferences.stationM4
+  }
+  
+  var m6Station: String {
+    return preferences.stationM6
+  }
+  
+  var lastM4Station: String?
+  var lastM6Station: String?
 
   var numberOfActiveLines: Int {
     if !m4Active && !m6Active {
@@ -86,6 +97,11 @@ class MetroInterfaceController: WKInterfaceController {
   
   override func awake(withContext context: Any?) {
     super.awake(withContext: context)
+    
+    debug.log("Awake")
+    
+    lastM4Station = m4Station
+    lastM6Station = m6Station
   }
   
   override func willActivate() {
@@ -94,7 +110,7 @@ class MetroInterfaceController: WKInterfaceController {
     debug.log("WillActivate")
 
     // Empty the lineTable if switched from OptionsInterfaceController and number of active lines changed
-    if ratpLinesTable.numberOfRows != numberOfActiveLines {
+    if ratpLinesTable.numberOfRows != numberOfActiveLines || lastM4Station != m4Station || lastM6Station != m6Station {
       resetTable()
     }
 
@@ -136,14 +152,14 @@ class MetroInterfaceController: WKInterfaceController {
   
     if m4Active {
       if m4SessionTask == nil {
-        debug.log("Fetch A-4")
+        debug.log("Fetch A-4-\(m4Station)")
         m4SessionTask = getApiData(forLine: .m4, to: .A) {
           self.cancelSessionTaskForM4()
         }
       }
       
       if m4RSessionTask == nil {
-        debug.log("Fetch R-4")
+        debug.log("Fetch R-4-\(m4Station)")
         m4RSessionTask = getApiData(forLine: .m4, to: .R) {
           self.cancelSessionTaskForM4R()
         }
@@ -152,14 +168,14 @@ class MetroInterfaceController: WKInterfaceController {
     
     if m6Active {
       if m6SessionTask == nil {
-        debug.log("Fetch A-6")
+        debug.log("Fetch A-6-\(m6Station)")
         m6SessionTask = getApiData(forLine: .m6, to: .A) {
           self.cancelSessionTaskForM6()
         }
       }
       
       if m6RSessionTask == nil {
-        debug.log("Fetch R-6")
+        debug.log("Fetch R-6-\(m6Station)")
         m6RSessionTask = getApiData(forLine: .m6, to: .R) {
           self.cancelSessionTaskForM6R()
         }
@@ -181,11 +197,14 @@ class MetroInterfaceController: WKInterfaceController {
     guard let row = getTableRow(forLine: line, to: direction) else { return }
     
     let firstSchedule = schedules[0]
-    let secondSchedule = schedules[1]
+
+    if schedules.count > 1 {
+      let secondSchedule = schedules[1]
+      row.secondLabel.setText(secondSchedule.message)
+    }
     
     row.lineGroup.setHidden(false)
     row.firstLabel.setText(firstSchedule.message)
-    row.secondLabel.setText(secondSchedule.message)
     row.titleLabel.setText(firstSchedule.destination)
     row.lineImage.setImageNamed("m\(line.rawValue).png")
   }
@@ -224,14 +243,27 @@ class MetroInterfaceController: WKInterfaceController {
   /// - returns:
   /// Session Task for this HTTP Request
   ///
-  func getApiData(forLine line: RatpLine, to direction: RatpDirection, then: @escaping () -> Void) -> URLSessionTask {
-    return api.schedules(forLine: line, to: direction, then: { schedules, error in
+  func getApiData(
+    forLine line: RatpLine,
+    to direction: RatpDirection,
+    then: @escaping () -> Void
+  ) -> URLSessionTask {
+    var station = ""
+    
+    switch line {
+    case .m4:
+      station = preferences.stationM4
+    case .m6:
+      station = preferences.stationM6
+    }
+    
+    return api.schedules(forLine: line, to: direction, forStation: station) { schedules, error in
       then()
       
       self.debug.log("Fetch \(direction.rawValue)-\(line.rawValue) : done")
       
       self.handleFetchData(schedules, line: line, to: direction, error: error)
-    })
+    }
   }
   
   ///
@@ -316,6 +348,9 @@ class MetroInterfaceController: WKInterfaceController {
   func resetTable() {
     let linesToDelete = IndexSet(Array(0...ratpLinesTable.numberOfRows))
     ratpLinesTable.removeRows(at: linesToDelete)
+    
+    lastM4Station = m4Station
+    lastM6Station = m6Station
     
     ratpLinesTable.setHidden(true)
     ratpLinesTable.setNumberOfRows(numberOfActiveLines, withRowType: "LineRowType")

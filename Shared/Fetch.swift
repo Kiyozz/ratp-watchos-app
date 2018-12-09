@@ -18,26 +18,20 @@ protocol Fetchable {
   ///   - response: HTTP Response
   ///   - error: Any error thrown from HTTP
   ///
-  func get(url: String, handler: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void) -> URLSessionTask
+  func get(handler: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void) -> URLSessionTask
 }
 
 protocol RequestFactory {
   ///
   /// Make a new HTTP Request
   ///
-  /// - parameters:
-  ///   - url: URL to Fetch
-  func makeRequest(forUrl url: String) -> URLRequest
-}
-
-public class Fetch {
+  func makeRequest() -> URLRequest
 }
 
 // MARK: - RequestFactory
-extension Fetch: RequestFactory {
-  func makeRequest(forUrl url: String) -> URLRequest {
-    let urlObject = URL(string: url)
-    var request = URLRequest(url: urlObject!)
+extension URL: RequestFactory {
+  func makeRequest() -> URLRequest {
+    var request = URLRequest(url: self)
     request.cachePolicy = URLRequest.CachePolicy.reloadIgnoringCacheData
     
     return request
@@ -45,9 +39,9 @@ extension Fetch: RequestFactory {
 }
 
 // MARK: - Fetchable
-extension Fetch: Fetchable {
-  public func get(url: String, handler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionTask {
-    let request = makeRequest(forUrl: url)
+extension URL: Fetchable {
+  public func get(handler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionTask {
+    let request = makeRequest()
     let task = URLSession.shared.dataTask(with: request, completionHandler: handler)
     
     task.resume()

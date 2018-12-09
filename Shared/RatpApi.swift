@@ -19,13 +19,20 @@ public struct RatpSchedule: Decodable {
   let destination: String
 }
 
-struct RatpScheduleResponse {
-  let schedules: [RatpSchedule]
-  
+public struct RatpStation: Decodable {
+  let slug: String
+  let name: String
+}
+
+class RatpResponse {
   enum RootKeys: String, CodingKey {
     case result
   }
-  
+}
+
+final class RatpScheduleResponse: RatpResponse {
+  let schedules: [RatpSchedule]
+
   enum ResultKeys: String, CodingKey {
     case schedules
   }
@@ -33,10 +40,30 @@ struct RatpScheduleResponse {
   enum MessageKeys: String, CodingKey {
     case message, destination
   }
+  
+  init(schedules: [RatpSchedule]) {
+    self.schedules = schedules
+  }
+}
+
+final class RatpStationResponse: RatpResponse {
+  let stations: [RatpStation]
+  
+  enum ResultKeys: String, CodingKey {
+    case stations
+  }
+  
+  enum StationKeys: String, CodingKey {
+    case slug, name
+  }
+  
+  init(stations: [RatpStation]) {
+    self.stations = stations
+  }
 }
 
 extension RatpScheduleResponse: Decodable {
-  init(from decoder: Decoder) throws {
+  convenience init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: RootKeys.self)
     
     let resultContainer = try container.nestedContainer(keyedBy: ResultKeys.self, forKey: .result)
@@ -51,7 +78,27 @@ extension RatpScheduleResponse: Decodable {
       schedules.append(schedule)
     }
     
-    self.schedules = schedules
+    self.init(schedules: schedules)
+  }
+}
+
+extension RatpStationResponse: Decodable {
+  convenience init(from decoder: Decoder) throws {
+    let container = try decoder.container(keyedBy: RootKeys.self)
+    
+    let resultContainer = try container.nestedContainer(keyedBy: ResultKeys.self, forKey: .result)
+    
+    var stationsContainer = try resultContainer.nestedUnkeyedContainer(forKey: .stations)
+    var stations = [RatpStation]()
+    
+    while !stationsContainer.isAtEnd {
+      let stationContainer = try stationsContainer.nestedContainer(keyedBy: StationKeys.self)
+      let station = RatpStation(slug: try stationContainer.decode(String.self, forKey: .slug), name: try stationContainer.decode(String.self, forKey: .name))
+      
+      stations.append(station)
+    }
+    
+    self.init(stations: stations)
   }
 }
 
@@ -73,9 +120,20 @@ public struct RatpApiError: Error {
   let message: String?
 }
 
-public class RatpApi: Fetch {
+public class RatpApi {
   private let apiUrl = "https://api-ratp.pierre-grimaud.fr/v3"
-  private let montparnasse = "montparnasse+bienvenue"
+  
+  private func unknownError(_ error: Error) -> Error {
+    return RatpApiError(kind: .unknown, message: error.localizedDescription)
+  }
+  
+  private func noDataError() -> Error {
+    return RatpApiError(kind: .noData, message: "Data cannot be retrieve from Api")
+  }
+  
+  private func jsonParseError() -> Error {
+    return RatpApiError(kind: .jsonParse, message: "JSON Response cannot be parsed")
+  }
   
   ///
   /// Get all schedules forLine and to direction
@@ -88,32 +146,68 @@ public class RatpApi: Fetch {
   public func schedules(
     forLine line: RatpLine,
     to direction: RatpDirection,
+    forStation station: String,
     then: @escaping ([RatpSchedule]?, Error?) -> Void
-    ) -> URLSessionTask {
-    return get(url: "\(apiUrl)/schedules/metros/\(line.rawValue)/\(montparnasse)/\(direction.rawValue)", handler: { (data, response, error) in
+  ) -> URLSessionTask {
+    let url = URL(string: "\(apiUrl)/schedules/metros/\(line.rawValue)/\(station)/\(direction.rawValue)")!
+    
+    return url.get(handler: { (data, response, error) in
       if error != nil {
-        then(nil, RatpApiError(kind: .unknown, message: error!.localizedDescription))
+        then(nil, self.unknownError(error!))
         
         return
       }
       
       guard let data = data else {
-        then(nil, RatpApiError(kind: .noData, message: "Data cannot be retrieve from Api"))
+        then(nil, self.noDataError())
         
         return
       }
       
       let decoder = JSONDecoder()
       
-      do {
-        let payload = try decoder.decode(RatpScheduleResponse.self, from: data)
-        
-        then(payload.schedules, nil)
-      } catch {
-        then(nil, RatpApiError(kind: .jsonParse, message: "JSON Response cannot be parsed"))
+      DispatchQueue.main.async {
+        do {
+          let payload = try decoder.decode(RatpScheduleResponse.self, from: data)
+          
+          then(payload.schedules, nil)
+        } catch {
+          then(nil, self.jsonParseError())
+        }
+      }
+      
+      return
+    })
+  }
+  
+  public func stations(
+    forLine line: RatpLine,
+    then: @escaping ([RatpStation]?, Error?) -> Void
+  ) -> URLSessionTask {
+    let url = URL(string: "\(apiUrl)/stations/metros/\(line.rawValue)")!
+    
+    return url.get { (data, response, error) in
+      if error != nil {
+        then(nil, self.unknownError(error!))
+      }
+      
+      guard let data = data else {
+        then(nil, self.noDataError())
         
         return
       }
-    })
+      
+      let decoder = JSONDecoder()
+      
+      DispatchQueue.main.async {
+        do {
+          let payload = try decoder.decode(RatpStationResponse.self, from: data)
+          
+          then(payload.stations, nil)
+        } catch {
+          then(nil, self.jsonParseError())
+        }
+      }
+    }
   }
 }
